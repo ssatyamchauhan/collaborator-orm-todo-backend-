@@ -1,5 +1,6 @@
 var nodemailer = require('nodemailer')
-const config = require('./config')
+// const config = require('./config')
+require('dotenv').config();
 
 module.exports = function mailer(req,res,token,next){
     console.log(token)
@@ -7,7 +8,7 @@ module.exports = function mailer(req,res,token,next){
 	service:'gmail',
 	auth:{
 		user:"no.todo.reply@gmail.com",
-		pass:config.key.gmailpass
+		pass:process.env.gmailpass
 		}
 });
 
